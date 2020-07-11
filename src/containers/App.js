@@ -1,16 +1,16 @@
 import React from "react";
 import "./App.css";
 
-import Posts from "./Comments";
+import Comments from "./Comments";
 
 function App() {
   return (
     <div>
-      <Posts id="1" />
+      <Comments id="1" />
       <hr />
-      <Posts id="2" />
+      <Comments id="2" />
       <hr />
-      <Posts id="3" />
+      <Comments id="3" />
       <hr />
     </div>
   );

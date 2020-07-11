@@ -12,6 +12,7 @@ function Comments({ id }) {
         const cmtData = data.data;
         cmtData.map((cmt) => {
           setComment((comment) => comment.concat(cmt));
+          return cmt;
         });
       }
     );
@@ -20,7 +21,7 @@ function Comments({ id }) {
       const topicData = data.data;
       setTopic(topicData ? topicData.title : "");
     });
-  }, []);
+  }, [id]);
 
   return (
     <div className="comments">

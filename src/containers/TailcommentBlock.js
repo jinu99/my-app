@@ -25,10 +25,9 @@ function TailcommentBlock({ id }) {
 
   return (
     <div className="tailcommant">
-      <text>
-        {" "}
-        → 글쓴이 : {user}, 내용 : {content}
-      </text>
+      <span>
+        ---------→ 글쓴이 : {user}, 내용 : {content}
+      </span>
     </div>
   );
 }

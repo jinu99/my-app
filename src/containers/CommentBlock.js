@@ -31,6 +31,7 @@ function CommentBlock({ id }) {
         const cmtData = data.data;
         cmtData.map((tcmt) => {
           setTcmt((tailcmt) => tailcmt.concat(tcmt));
+          return tcmt;
         });
       }
     );
@@ -51,21 +52,21 @@ function CommentBlock({ id }) {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div className="commentBlock">
       <div className="info">
         <h3>글쓴이 : {user}</h3>
       </div>
-      <h4>{content}</h4>
+      <h4>내용 : {content}</h4>
       <div className="likes">
         <span>Currently {like} people like this.</span>
         <button onClick={increaseLike}>LIKE!</button>
         <button onClick={decreaseLike}>DISLIKE!</button>
       </div>
       {tcmt.map((tailcmt) => (
-        <TailcommentBlock id={tailcmt.id} />
+        <TailcommentBlock id={tailcmt.id} key={tailcmt.id} />
       ))}
     </div>
   );
