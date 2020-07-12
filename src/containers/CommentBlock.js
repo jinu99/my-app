@@ -26,19 +26,10 @@ function CommentBlock({ id }) {
   };
 
   useEffect(() => {
-    Axios.get("http://localhost:8080/tailcomments?commentId=" + id).then(
-      ({ data }) => {
-        const cmtData = data.data;
-        cmtData.map((tcmt) => {
-          setTcmt((tailcmt) => tailcmt.concat(tcmt));
-          return tcmt;
-        });
-      }
-    );
-
     Axios.get("http://localhost:8080/comment?id=" + id)
-      .then((d) => {
-        const commentData = d.data.data;
+      .then(({ data }) => {
+        const commentData = data.data;
+        console.log(commentData);
 
         Axios.get("http://localhost:8080/user?id=" + commentData.userId).then(
           (userData) => {
@@ -48,6 +39,7 @@ function CommentBlock({ id }) {
 
         setContent(commentData.content);
         setLike(commentData.like);
+        setTcmt(data.tails);
       })
       .catch((error) => {
         console.log(error);

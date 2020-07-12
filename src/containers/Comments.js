@@ -26,8 +26,8 @@ function Comments({ id }) {
   return (
     <div className="comments">
       <h1>주제: {topic}</h1>
-      {comment.map((cmt) => (
-        <CommentBlock key={cmt.id} id={cmt.id} />
+      {comment.map(({ comment }) => (
+        <CommentBlock key={comment.id} id={comment.id} />
       ))}
     </div>
   );

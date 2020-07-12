@@ -6,6 +6,7 @@ import Comments from "./Comments";
 function App() {
   return (
     <div>
+      {}
       <Comments id="1" />
       <hr />
       <Comments id="2" />
